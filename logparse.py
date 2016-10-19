@@ -15,6 +15,7 @@
 # Regex to get msg 		\[msg(.*?)\]
 # Regex to get Date 		\d+\/\d+\/\d+
 # Regex to get Time 		\s\d+\:\d+\:\d+
+# Regex to get client		\[client(.*?)\]
 
 # Module were used
 import re
@@ -29,6 +30,7 @@ getTime = re.compile(r'\s\d+\:\d+\:\d+')
 getMSG = re.compile(r'\[msg(.*?)\]')
 getID = re.compile(r'\[id(.*?)\]')
 getSeverity = re.compile(r'\[severity(.*?)\]')
+getClient = re.compile(r'\[client(.*?)\]')
 
 # Loop for getting data
 for baca in fo: 
@@ -37,9 +39,10 @@ for baca in fo:
     textID = getID.findall(baca)
     textSVRT = getSeverity.findall(baca)
     textMSG = getMSG.findall(baca)
+    textClient = getClient.findall(baca)
 
     # Condition for printout data
-    if (textDate and textTime and textID and textSVRT and textMSG):
+    if (textDate and textTime and textID and textSVRT and textMSG and textClient):
         for tDate in textDate:
             print tDate
         for tTime in textTime:
@@ -50,5 +53,7 @@ for baca in fo:
             print tSVRT
         for tMSG in textMSG:
             print tMSG
+        for tClient in testClient:
+            print tClient
     time.sleep(0.5)
 fo.close()
