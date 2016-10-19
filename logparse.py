@@ -53,7 +53,7 @@ for baca in fo:
             print tSVRT
         for tMSG in textMSG:
             print tMSG
-        for tClient in testClient:
+        for tClient in textClient:
             print tClient
     time.sleep(0.5)
 fo.close()
